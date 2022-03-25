@@ -22,7 +22,6 @@ namespace TestManagementGame
         public int width { get; private set; }
         public bool vsync { get; private set; }
 
-
         public Game1()
         {
             //init
@@ -44,8 +43,6 @@ namespace TestManagementGame
         protected override void Initialize()
         {
             screenMgr.Init();
-
-
 
             base.Initialize();
         }

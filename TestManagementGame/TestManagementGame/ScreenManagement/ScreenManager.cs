@@ -16,7 +16,6 @@ namespace TestManagementGame.ScreenManagement
         SplashScreen splash = new SplashScreen();
         TitleScreen title = new TitleScreen();
 
-
         public void Init()
         {
             screens.Add(ScreenType.Splash, splash);
@@ -24,12 +23,14 @@ namespace TestManagementGame.ScreenManagement
 
             currentScreen = splash;
         }
+
         public void SetScreen(ScreenType type)
         {
             GameScreen newScreen;
             if (screens.TryGetValue(type, out newScreen))
                 currentScreen = newScreen;
         }
+
         public void AddScreen(ScreenType type, GameScreen newScreen)
         {
             screens.Add(type, newScreen);
@@ -44,7 +45,5 @@ namespace TestManagementGame.ScreenManagement
         {
             currentScreen.Draw(g);
         }
-
-
     }
 }
