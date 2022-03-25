@@ -11,13 +11,6 @@ namespace TestManagementGame.ScreenManagement
     public class ScreenManager
     {
         GameScreen currentScreen;
-        Vector2 dimensions;
-
-        public Vector2 Dimensions
-        {
-            get { return dimensions; }
-            set { dimensions = value; }
-        }
 
         public void SetScreen(GameScreen newScreen)
         {

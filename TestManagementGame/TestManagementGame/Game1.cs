@@ -8,15 +8,33 @@ namespace TestManagementGame
 {
     public class Game1 : Game
     {
+        //Graphics
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        //Screens
         ScreenManager screenMgr = new ScreenManager();
         SplashScreen splash = new SplashScreen();
 
+        //window
+        public int height { get; private set; }
+        public int width { get; private set; }
+        public bool vsync { get; private set; }
+
+
         public Game1()
         {
+            //init
+            height = 600;
+            width = 800;
+
+            //init graphics
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferHeight = height;
+            _graphics.PreferredBackBufferWidth = width;
+            _graphics.SynchronizeWithVerticalRetrace = vsync;
+            _graphics.ApplyChanges();
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -24,11 +42,6 @@ namespace TestManagementGame
         protected override void Initialize()
         {
             screenMgr.SetScreen(splash);
-
-            screenMgr.Dimensions = new Vector2(640, 480);
-            _graphics.PreferredBackBufferWidth = (int)screenMgr.Dimensions.X;
-            _graphics.PreferredBackBufferHeight = (int)screenMgr.Dimensions.Y;
-            _graphics.ApplyChanges();
 
             base.Initialize();
         }
