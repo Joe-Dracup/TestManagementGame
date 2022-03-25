@@ -24,6 +24,7 @@ namespace TestManagementGame.ScreenManagement.Screens
         public override void Draw(Game1 g)
         {
             g.GraphicsDevice.Clear(Color.White);
+            g._spriteBatch.DrawString(g.font, "Splash Screen", new Vector2(100, 100), Color.Black);        
         }
     }
 }

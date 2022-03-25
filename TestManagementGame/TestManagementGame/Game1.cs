@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TestManagementGame.ScreenManagement;
@@ -9,8 +10,9 @@ namespace TestManagementGame
     public class Game1 : Game
     {
         //Graphics
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public GraphicsDeviceManager _graphics;
+        public SpriteBatch _spriteBatch;
+        public SpriteFont font;
 
         //Screens
         public ScreenManager screenMgr = new ScreenManager();
@@ -44,12 +46,18 @@ namespace TestManagementGame
             screenMgr.Init();
 
 
+
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            if (font == null)
+            {
+                font = Content.Load<SpriteFont>("Font1");
+            }
         }
 
         protected override void Update(GameTime gameTime)
