@@ -11,6 +11,9 @@ namespace TestManagementGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        ScreenManager screenMgr = new ScreenManager();
+        SplashScreen splash = new SplashScreen();
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -20,11 +23,11 @@ namespace TestManagementGame
 
         protected override void Initialize()
         {
-            ScreenManager.Instance.Initialize();
+            screenMgr.SetScreen(splash);
 
-            ScreenManager.Instance.Dimensions = new Vector2(640, 480);
-            _graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
-            _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            screenMgr.Dimensions = new Vector2(640, 480);
+            _graphics.PreferredBackBufferWidth = (int)screenMgr.Dimensions.X;
+            _graphics.PreferredBackBufferHeight = (int)screenMgr.Dimensions.Y;
             _graphics.ApplyChanges();
 
             base.Initialize();
@@ -33,8 +36,6 @@ namespace TestManagementGame
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            ScreenManager.Instance.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,7 +43,7 @@ namespace TestManagementGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            ScreenManager.Instance.Update(gameTime);
+            screenMgr.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -51,7 +52,7 @@ namespace TestManagementGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            ScreenManager.Instance.Draw(_spriteBatch);
+            screenMgr.Draw(this);
             _spriteBatch.End();
 
             base.Draw(gameTime);

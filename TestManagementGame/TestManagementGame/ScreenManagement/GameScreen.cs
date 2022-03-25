@@ -7,18 +7,10 @@ using System.Text;
 
 namespace TestManagementGame.ScreenManagement
 {
-    public class GameScreen
+    public abstract class GameScreen
     {
         protected ContentManager _content;
-        public virtual void LoadContent(ContentManager content)
-        {
-            _content = new ContentManager(content.ServiceProvider, "Content");
-        }
-        public virtual void UnloadContent()
-        {
-            _content.Unload();
-        }
         public virtual void Update(GameTime gameTime) { }
-        public virtual void Draw(SpriteBatch spriteBatch) { }
+        public virtual void Draw(Game1 g) { }
     }
 }

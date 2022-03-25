@@ -11,24 +11,7 @@ namespace TestManagementGame.ScreenManagement
     public class ScreenManager
     {
         GameScreen currentScreen;
-
-        Stack<GameScreen> screenStack = new Stack<GameScreen>();
-
         Vector2 dimensions;
-
-        ContentManager content;
-
-        private static ScreenManager instance;
-
-        public static ScreenManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new ScreenManager();
-                return instance;
-            }
-        }
 
         public Vector2 Dimensions
         {
@@ -36,23 +19,9 @@ namespace TestManagementGame.ScreenManagement
             set { dimensions = value; }
         }
 
-        public void Initialize()
+        public void SetScreen(GameScreen newScreen)
         {
-            currentScreen = new SplashScreen();
-        }
-
-        public void AddScreen(GameScreen newScreen)
-        {
-            screenStack.Push(newScreen);
-            currentScreen.UnloadContent();
-            currentScreen = screenStack.Peek();
-            currentScreen.LoadContent(content);
-        }
-
-        public void LoadContent(ContentManager Content)
-        {
-            content = new ContentManager(Content.ServiceProvider, "Content");
-            currentScreen.LoadContent(content);
+            currentScreen = newScreen;
         }
 
         internal void Update(GameTime gameTime)
@@ -60,9 +29,9 @@ namespace TestManagementGame.ScreenManagement
             currentScreen.Update(gameTime);
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw(Game1 g)
         {
-            currentScreen.Draw(spriteBatch);
+            currentScreen.Draw(g);
         }
     }
 }

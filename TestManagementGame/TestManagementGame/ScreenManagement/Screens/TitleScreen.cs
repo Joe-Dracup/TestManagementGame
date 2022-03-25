@@ -12,27 +12,15 @@ namespace TestManagementGame.ScreenManagement.Screens
     {
         SpriteFont font;
         KeyboardState keyState;
-        public override void LoadContent(ContentManager content)
-        {
-            base.LoadContent(content);
-            if (font == null)
-            {
-                font = _content.Load<SpriteFont>("Font1");
-            }
-        }
 
         public override void Update(GameTime gameTime)
         {
-            keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Enter))
-            {
-                ScreenManager.Instance.AddScreen(new SplashScreen());
-            }
+
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw(Game1 g)
         {
-            spriteBatch.DrawString(font, "Title", new Vector2(100, 100), Color.Black);
+            g.GraphicsDevice.Clear(Color.Black);
         }
     }
 }
