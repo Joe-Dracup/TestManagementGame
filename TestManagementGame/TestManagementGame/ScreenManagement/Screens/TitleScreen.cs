@@ -10,12 +10,15 @@ namespace TestManagementGame.ScreenManagement.Screens
 {
     public class TitleScreen : GameScreen
     {
-        SpriteFont font;
         KeyboardState keyState;
 
-        public override void Update(GameTime gameTime)
+        public override void Update(Game1 g)
         {
-
+            keyState = Keyboard.GetState();
+            if (keyState.IsKeyDown(Keys.Enter))
+            {
+                g.screenMgr.SetScreen(ScreenType.Splash);
+            }
         }
 
         public override void Draw(Game1 g)

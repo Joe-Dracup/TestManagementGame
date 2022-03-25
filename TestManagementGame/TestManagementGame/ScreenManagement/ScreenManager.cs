@@ -11,20 +11,40 @@ namespace TestManagementGame.ScreenManagement
     public class ScreenManager
     {
         GameScreen currentScreen;
+        Dictionary<ScreenType, GameScreen> screens = new Dictionary<ScreenType, GameScreen>();
 
-        public void SetScreen(GameScreen newScreen)
+        SplashScreen splash = new SplashScreen();
+        TitleScreen title = new TitleScreen();
+
+
+        public void Init()
         {
-            currentScreen = newScreen;
+            screens.Add(ScreenType.Splash, splash);
+            screens.Add(ScreenType.Title, title);
+
+            currentScreen = splash;
+        }
+        public void SetScreen(ScreenType type)
+        {
+            GameScreen newScreen;
+            if (screens.TryGetValue(type, out newScreen))
+                currentScreen = newScreen;
+        }
+        public void AddScreen(ScreenType type, GameScreen newScreen)
+        {
+            screens.Add(type, newScreen);
         }
 
-        internal void Update(GameTime gameTime)
+        internal void Update(Game1 g)
         {
-            currentScreen.Update(gameTime);
+            currentScreen.Update(g);
         }
 
         internal void Draw(Game1 g)
         {
             currentScreen.Draw(g);
         }
+
+
     }
 }

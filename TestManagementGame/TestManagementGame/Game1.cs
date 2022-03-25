@@ -13,8 +13,7 @@ namespace TestManagementGame
         private SpriteBatch _spriteBatch;
 
         //Screens
-        ScreenManager screenMgr = new ScreenManager();
-        SplashScreen splash = new SplashScreen();
+        public ScreenManager screenMgr = new ScreenManager();
 
         //window
         public int height { get; private set; }
@@ -33,6 +32,7 @@ namespace TestManagementGame
             _graphics.PreferredBackBufferHeight = height;
             _graphics.PreferredBackBufferWidth = width;
             _graphics.SynchronizeWithVerticalRetrace = vsync;
+            //_graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
 
             Content.RootDirectory = "Content";
@@ -41,7 +41,8 @@ namespace TestManagementGame
 
         protected override void Initialize()
         {
-            screenMgr.SetScreen(splash);
+            screenMgr.Init();
+
 
             base.Initialize();
         }
@@ -56,7 +57,7 @@ namespace TestManagementGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            screenMgr.Update(gameTime);
+            screenMgr.Update(this);
             base.Update(gameTime);
         }
 
