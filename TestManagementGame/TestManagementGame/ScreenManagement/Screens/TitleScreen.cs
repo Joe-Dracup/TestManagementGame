@@ -6,6 +6,11 @@ namespace TestManagementGame.ScreenManagement.Screens
 {
     public class TitleScreen : GameScreen
     {
+        public TitleScreen() : base(ScreenType.Title)
+        {
+
+        }
+
         KeyboardState keyState;
 
         public override void Update(Game1 g)

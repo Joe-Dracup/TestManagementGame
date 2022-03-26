@@ -7,7 +7,12 @@ namespace TestManagementGame.ScreenManagement.Screens
     public class SplashScreen : GameScreen
     {
         KeyboardState keyState;
-           
+
+        public SplashScreen() : base(ScreenType.Splash)
+        {
+
+        }
+
         public override void Update(Game1 g)
         {
             keyState = Keyboard.GetState();

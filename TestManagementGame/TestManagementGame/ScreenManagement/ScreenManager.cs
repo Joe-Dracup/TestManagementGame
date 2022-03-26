@@ -13,8 +13,8 @@ namespace TestManagementGame.ScreenManagement
 
         public void Init()
         {
-            screens.Add(ScreenType.Splash, splash);
-            screens.Add(ScreenType.Title, title);
+            screens.Add(splash.type, splash);
+            screens.Add(title.type, title);
 
             currentScreen = splash;
         }
