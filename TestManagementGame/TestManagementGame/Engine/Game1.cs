@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TestManagementGame.Engine;
 using TestManagementGame.ScreenManagement;
 
 namespace TestManagementGame
@@ -8,34 +9,20 @@ namespace TestManagementGame
     public class Game1 : Game
     {
         //Graphics
-        public GraphicsDeviceManager _graphics;
-        public SpriteBatch _spriteBatch;
         public SpriteFont font;
 
         //Screens
         public ScreenManager screenMgr = new ScreenManager();
 
         //window
-        public int height { get; private set; }
-        public int width { get; private set; }
-        public bool vsync { get; private set; }
+        
 
         public Game1()
         {
             //init
-            height = 600;
-            width = 800;
-
-            //init graphics
-            _graphics = new GraphicsDeviceManager(this);
-            _graphics.PreferredBackBufferHeight = height;
-            _graphics.PreferredBackBufferWidth = width;
-            _graphics.SynchronizeWithVerticalRetrace = vsync;
-            //_graphics.IsFullScreen = true;
-            _graphics.ApplyChanges();
+            Globals.Init(this);
 
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
         protected override void Initialize()
@@ -47,7 +34,8 @@ namespace TestManagementGame
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.content = Content;
+            Globals._spriteBatch = new SpriteBatch(GraphicsDevice);
 
             if (font == null)
             {
@@ -68,9 +56,9 @@ namespace TestManagementGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin();
+            Globals._spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             screenMgr.Draw(this);
-            _spriteBatch.End();
+            Globals._spriteBatch.End();
 
             base.Draw(gameTime);
         }

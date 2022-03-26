@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using TestManagementGame.Engine;
 
 namespace TestManagementGame.ScreenManagement.Screens
 {
@@ -19,7 +20,7 @@ namespace TestManagementGame.ScreenManagement.Screens
         public override void Draw(Game1 g)
         {
             g.GraphicsDevice.Clear(Color.Black);
-            g._spriteBatch.DrawString(g.font, "Title Screen", new Vector2(100, 100), Color.White);
+            Globals._spriteBatch.DrawString(g.font, "Title Screen", new Vector2(100, 100), Color.White);
         }
     }
 }
