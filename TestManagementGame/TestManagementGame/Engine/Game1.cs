@@ -8,15 +8,6 @@ namespace TestManagementGame
 {
     public class Game1 : Game
     {
-        //Graphics
-        public SpriteFont font;
-
-        //Screens
-        public ScreenManager screenMgr = new ScreenManager();
-
-        //window
-        
-
         public Game1()
         {
             //init
@@ -27,20 +18,15 @@ namespace TestManagementGame
 
         protected override void Initialize()
         {
-            screenMgr.Init();
+            Globals.screenMgr.Init();
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            Globals.content = Content;
-            Globals._spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            if (font == null)
-            {
-                font = Content.Load<SpriteFont>("Font1");
-            }
+           
         }
 
         protected override void Update(GameTime gameTime)
@@ -48,7 +34,7 @@ namespace TestManagementGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            screenMgr.Update(this);
+            Globals.screenMgr.Update();
             base.Update(gameTime);
         }
 
@@ -56,9 +42,9 @@ namespace TestManagementGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            Globals._spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            screenMgr.Draw(this);
-            Globals._spriteBatch.End();
+            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+            Globals.screenMgr.Draw();
+            Globals.spriteBatch.End();
 
             base.Draw(gameTime);
         }

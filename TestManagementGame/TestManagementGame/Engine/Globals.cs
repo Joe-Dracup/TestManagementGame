@@ -4,14 +4,16 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TestManagementGame.ScreenManagement;
 
 namespace TestManagementGame.Engine
 {
     public static class Globals
     {
-        public static GraphicsDeviceManager _graphics;
-        public static SpriteBatch _spriteBatch;
+        public static GraphicsDeviceManager graphics;
+        public static SpriteBatch spriteBatch;
         public static ContentManager content;
+        public static ScreenManager screenMgr;
 
         public static int height { get; private set; }
         public static int width { get; private set; }
@@ -23,14 +25,16 @@ namespace TestManagementGame.Engine
             width = 800;
 
             //init graphics
-            _graphics = new GraphicsDeviceManager(g);
-            _graphics.PreferredBackBufferHeight = height;
-            _graphics.PreferredBackBufferWidth = width;
-            _graphics.SynchronizeWithVerticalRetrace = vsync;
+            graphics = new GraphicsDeviceManager(g);
+            graphics.PreferredBackBufferHeight = height;
+            graphics.PreferredBackBufferWidth = width;
+            graphics.SynchronizeWithVerticalRetrace = vsync;
             //_graphics.IsFullScreen = true;
-            _graphics.ApplyChanges();
+            graphics.ApplyChanges();
 
-            g.IsMouseVisible = true;
+            content = g.Content;
+            spriteBatch = new SpriteBatch(g.GraphicsDevice);
+            screenMgr = new ScreenManager();
         }
     }
 }

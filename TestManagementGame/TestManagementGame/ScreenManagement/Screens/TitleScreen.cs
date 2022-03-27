@@ -13,19 +13,18 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         KeyboardState keyState;
 
-        public override void Update(Game1 g)
+        public override void Update()
         {
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Enter))
             {
-                g.screenMgr.SetScreen(ScreenType.Splash);
+                Globals.screenMgr.SetScreen(ScreenType.Splash);
             }
         }
 
-        public override void Draw(Game1 g)
+        public override void Draw()
         {
-            g.GraphicsDevice.Clear(Color.Black);
-            Globals._spriteBatch.DrawString(g.font, "Title Screen", new Vector2(100, 100), Color.White);
+            //Globals.spriteBatch.DrawString(g.font, "Title Screen", new Vector2(100, 100), Color.White);
         }
     }
 }

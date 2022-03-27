@@ -31,14 +31,14 @@ namespace TestManagementGame.ScreenManagement
             screens.Add(type, newScreen);
         }
 
-        internal void Update(Game1 g)
+        internal void Update()
         {
-            currentScreen.Update(g);
+            currentScreen.Update();
         }
 
-        internal void Draw(Game1 g)
+        internal void Draw()
         {
-            currentScreen.Draw(g);
+            currentScreen.Draw();
         }
     }
 }

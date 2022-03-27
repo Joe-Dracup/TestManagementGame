@@ -11,7 +11,7 @@ namespace TestManagementGame.ScreenManagement
         }
         public ScreenType type;
         protected ContentManager _content;
-        public virtual void Update(Game1 g) { }
-        public virtual void Draw(Game1 g) { }
+        public virtual void Update() { }
+        public virtual void Draw() { }
     }
 }
