@@ -16,7 +16,7 @@ namespace TestManagementGame.ObjectManagement
             this.position = position;
             this.size = size;
 
-            texture = Globals.content.Load<Texture2D>("Content\\" + path);
+            texture = Globals.content.Load<Texture2D>(path);
         }
 
         public virtual void Update()

@@ -10,9 +10,9 @@ namespace TestManagementGame.ScreenManagement.Screens
     {
         KeyboardState keyState;
 
+        //Objects
         SpriteFont font;
-
-        Object2D logo = new Object2D("Logo", new Vector2(Globals.width/2, Globals.height / 2), new Vector2(128, 128));
+        Object2D logo;
 
         public SplashScreen() : base(ScreenType.Splash)
         {
@@ -24,6 +24,10 @@ namespace TestManagementGame.ScreenManagement.Screens
             if (font == null)
             {
                 font = Globals.content.Load<SpriteFont>("Font1");
+            }
+            if(logo == null)
+            {
+                logo = new Object2D("Logo", new Vector2(Globals.width / 2, Globals.height / 2), new Vector2(128, 128));
             }
             base.LoadContent();
         }
