@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using TestManagementGame.ScreenManagement.Screens;
 
 namespace TestManagementGame.ScreenManagement
@@ -31,9 +32,9 @@ namespace TestManagementGame.ScreenManagement
             screens.Add(type, newScreen);
         }
 
-        internal void Update()
+        internal void Update(GameTime gameTime)
         {
-            currentScreen.Update();
+            currentScreen.Update(gameTime);
         }
 
         internal void Draw()

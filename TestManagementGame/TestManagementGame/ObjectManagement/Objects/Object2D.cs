@@ -23,6 +23,7 @@ namespace TestManagementGame.ObjectManagement
         {
 
         }
+
         public virtual void Draw()
         {
             Draw(new Vector2(0, 0), 0.0f, new Vector2(texture.Bounds.Width / 2, texture.Bounds.Height / 2));

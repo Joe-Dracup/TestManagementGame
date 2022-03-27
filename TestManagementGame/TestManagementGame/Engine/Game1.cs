@@ -34,7 +34,7 @@ namespace TestManagementGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            Globals.screenMgr.Update();
+            Globals.screenMgr.Update(gameTime);
             base.Update(gameTime);
         }
 

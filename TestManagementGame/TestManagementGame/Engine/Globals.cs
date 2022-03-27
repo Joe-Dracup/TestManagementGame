@@ -15,21 +15,17 @@ namespace TestManagementGame.Engine
         public static ContentManager content;
         public static ScreenManager screenMgr;
 
-        public static int height { get; private set; }
-        public static int width { get; private set; }
-        public static bool vsync { get; private set; } = true;
+        public static int Height { get; private set; } = 600;
+        public static int Width { get; private set; } = 800;
+        public static bool Vsync { get; private set; } = false;
 
         public static void Init(Game1 g)
         {
-            height = 600;
-            width = 800;
-
             //init graphics
             graphics = new GraphicsDeviceManager(g);
-            graphics.PreferredBackBufferHeight = height;
-            graphics.PreferredBackBufferWidth = width;
-            graphics.SynchronizeWithVerticalRetrace = vsync;
-            //_graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferHeight = Height;
+            graphics.PreferredBackBufferWidth = Width;
+            graphics.SynchronizeWithVerticalRetrace = Vsync;
             graphics.ApplyChanges();
 
             content = g.Content;

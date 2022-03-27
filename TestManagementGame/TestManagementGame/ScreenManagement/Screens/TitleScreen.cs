@@ -13,7 +13,7 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         KeyboardState keyState;
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Enter))
