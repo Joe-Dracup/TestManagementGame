@@ -16,10 +16,16 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         public SplashScreen() : base(ScreenType.Splash)
         {
+            
+        }
+
+        public override void LoadContent()
+        {
             if (font == null)
             {
-                font = Globals.content.Load<SpriteFont>("Content\\Font1");
+                font = Globals.content.Load<SpriteFont>("Font1");
             }
+            base.LoadContent();
         }
 
         public override void Update()

@@ -13,17 +13,17 @@ namespace TestManagementGame.ScreenManagement
 
         public void Init()
         {
-            screens.Add(splash.type, splash);
-            screens.Add(title.type, title);
+            AddScreen(splash.type, splash);
+            AddScreen(title.type, title);
 
-            currentScreen = splash;
+            SetScreen(ScreenType.Splash);
         }
 
         public void SetScreen(ScreenType type)
         {
-            GameScreen newScreen;
-            if (screens.TryGetValue(type, out newScreen))
+            if (screens.TryGetValue(type, out GameScreen newScreen))
                 currentScreen = newScreen;
+            currentScreen.LoadContent();
         }
 
         public void AddScreen(ScreenType type, GameScreen newScreen)

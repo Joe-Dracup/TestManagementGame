@@ -13,5 +13,6 @@ namespace TestManagementGame.ScreenManagement
         protected ContentManager _content;
         public virtual void Update() { }
         public virtual void Draw() { }
+        public virtual void LoadContent() { }
     }
 }
