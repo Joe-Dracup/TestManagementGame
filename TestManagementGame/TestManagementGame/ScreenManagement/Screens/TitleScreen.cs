@@ -24,7 +24,7 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         public override void Draw()
         {
-            //Globals.spriteBatch.DrawString(g.font, "Title Screen", new Vector2(100, 100), Color.White);
+
         }
     }
 }

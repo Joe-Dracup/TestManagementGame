@@ -14,7 +14,10 @@ namespace TestManagementGame.ScreenManagement.Screens
         //Objects
         Text2D title, bottomText;
         SplashLogo logo;
-        int logoHeight = 128;
+
+        //Variables
+        readonly int logoHeight = 128;
+        readonly Vector2 titlePos = new Vector2(128, 128);
 
         public SplashScreen() : base(ScreenType.Splash)
         {
@@ -23,12 +26,13 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         public override void LoadContent()
         {
-            title = new Text2D("Font1", new Vector2(128, 128), "This is a splash screen");
-            bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 250), "");
+            if (title == null)
+                title = new Text2D("Font1", titlePos, "This is a splash screen");
+            if (bottomText == null)
+                bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 150, "");
             if (logo == null)
-            {
                 logo = new SplashLogo(new Vector2(Globals.Width / 2, Globals.Height), new Vector2(logoHeight, logoHeight));
-            }
+
             base.LoadContent();
         }
 

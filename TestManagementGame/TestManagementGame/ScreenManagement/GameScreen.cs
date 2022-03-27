@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using TestManagementGame.ScreenManagement.Screens;
 
 namespace TestManagementGame.ScreenManagement
@@ -11,7 +10,6 @@ namespace TestManagementGame.ScreenManagement
             this.type = type;
         }
         public ScreenType type;
-        protected ContentManager _content;
         public virtual void Update(GameTime gameTime) { }
         public virtual void Draw() { }
         public virtual void LoadContent() { }
