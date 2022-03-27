@@ -12,7 +12,7 @@ namespace TestManagementGame.ScreenManagement.Screens
         KeyboardState keyState;
 
         //Objects
-        SpriteFont font;
+        Text2D title, bottomText;
         SplashLogo logo;
         int logoHeight = 128;
 
@@ -23,10 +23,8 @@ namespace TestManagementGame.ScreenManagement.Screens
 
         public override void LoadContent()
         {
-            if (font == null)
-            {
-                font = Globals.content.Load<SpriteFont>("Font1");
-            }
+            title = new Text2D("Font1", new Vector2(128, 128), "This is a splash screen");
+            bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 250), "");
             if (logo == null)
             {
                 logo = new SplashLogo(new Vector2(Globals.Width / 2, Globals.Height), new Vector2(logoHeight, logoHeight));
@@ -44,9 +42,9 @@ namespace TestManagementGame.ScreenManagement.Screens
             {
                 logo.position.Y -= logo.Speed * delta;
             }
-            else
+            else if (string.IsNullOrEmpty(bottomText.text))
             {
-
+                bottomText.Update("Press Space To Proceed");
             }
 
             if (keyState.IsKeyDown(Keys.Space))
@@ -58,7 +56,8 @@ namespace TestManagementGame.ScreenManagement.Screens
         public override void Draw()
         {
             logo.Draw();
-            Globals.spriteBatch.DrawString(font, "Splash Screen", new Vector2(100, 100), Color.Black);
+            title.Draw();
+            bottomText.Draw();
         }
     }
 }

@@ -12,11 +12,5 @@ namespace TestManagementGame.ObjectManagement.Objects
         {
 
         }
-
-        public override void Update()
-        {
-
-            base.Update();
-        }
     }
 }
