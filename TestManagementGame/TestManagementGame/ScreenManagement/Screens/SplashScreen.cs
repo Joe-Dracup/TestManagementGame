@@ -29,7 +29,7 @@ namespace TestManagementGame.ScreenManagement.Screens
             if (title == null)
                 title = new Text2D("Font1", titlePos, "This is a splash screen");
             if (bottomText == null)
-                bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 150, "");
+                bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 150), "");
             if (logo == null)
                 logo = new SplashLogo(new Vector2(Globals.Width / 2, Globals.Height), new Vector2(logoHeight, logoHeight));
 
