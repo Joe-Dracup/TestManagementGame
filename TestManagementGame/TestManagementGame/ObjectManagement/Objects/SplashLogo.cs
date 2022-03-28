@@ -5,8 +5,8 @@ namespace TestManagementGame.ObjectManagement.Objects
 {
     public class SplashLogo : Object2D
     {
-        public float Speed = 500f;
-        public SplashLogo(Vector2 position, Vector2 size) : base("Logo", position, size)
+        public float Speed = 200f;
+        public SplashLogo(int logoHeight) : base("BeeLogo2", new Vector2(Globals.Width / 2, Globals.Height), new Vector2(logoHeight + logoHeight / 3, logoHeight))
         {
 
         }
