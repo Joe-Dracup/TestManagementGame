@@ -16,7 +16,7 @@ namespace TestManagementGame.ObjectManagement
             texture = Globals.content.Load<Texture2D>(path);
         }
 
-        public virtual void Update()
+        public virtual void Update(GameTime gameTime)
         {
 
         }

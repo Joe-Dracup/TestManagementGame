@@ -29,7 +29,7 @@ namespace TestManagementGame.ScreenManagement.Screens
             if (title == null)
                 title = new Text2D("Font1", titlePos, "This is a splash screen");
             if (bottomText == null)
-                bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 150), "Press Space To Proceed", true);
+                bottomText = new Text2D("Font1", new Vector2(Globals.Width / 2, Globals.Height - 150), "Press Space To Proceed");
             if (logo == null)
                 logo = new SplashLogo(new Vector2(Globals.Width / 2, Globals.Height), new Vector2(logoHeight, logoHeight));
 
@@ -40,16 +40,7 @@ namespace TestManagementGame.ScreenManagement.Screens
         {
             keyState = Keyboard.GetState();
 
-            var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            if (logo.position.Y >= (Globals.Height / 2) - (logoHeight / 2))
-            {
-                logo.position.Y -= logo.Speed * delta;
-            }
-            else if(bottomText.hidden == true)
-            {
-                bottomText.hidden = false;
-            }
+            logo.Update(gameTime);
 
             if (keyState.IsKeyDown(Keys.Space))
             {
